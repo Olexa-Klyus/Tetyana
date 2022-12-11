@@ -62,7 +62,7 @@ class Humen:
         self.surname = surname
 
     def __str__(self):
-        return f'{self.surname}{self.name[0]}.'
+        return f'{self.surname} {self.name[0]}.'
 
 
 class Student(Humen):
