@@ -7,24 +7,35 @@
 #
 # print(function_one(3, 5, 'Привіт '))
 
+# варіант ментора
+# def func(a, b, c):
+#     if isinstance(a, int) and isinstance(b, int):  # це якщо потрібна перевірка але перевірку бажано робити в тілі програми
+#         return f'{a + b}{c}'
+#     return -1
+#
+#
+# print(func(1, 2, 'hello'))
 
 # 2. Реалізуйте функцію, яка малює на екрані прямокутник із зірочок «*».
 # Її параметрами будуть цілі числа, які описують довжину та ширину такого прямокутника.
 
 # def stars_rectangle(a, b):
-#     res = ""
-#     for i in range(b):
-#         res = res + "*" * a
-#         if i < b - 1:  # це щоб останній ентер не доліплявся
-#             res = res + "\n"
-#     return res
-#
-#           або
-#     return (("*" * a + "\n") * b)[:-1]
+    # res = ""
+    # for i in range(b):
+    #     res = res + "*" * a
+    #     if i < b - 1:  # це щоб останній ентер не доліплявся
+    #         res = res + "\n"
+    # return res
+
+    # або
+    # return (("*" * a + "\n") * b)[:-1]
+
+    # варіант ментора
+    # return f'{"*" * b}\n' +\
+    #        f'*{" " * (b - 2)}*\n' * (a - 2) + \
+    #        '*' * b
 
 
-#
-#
 # print(stars_rectangle(10, 5))
 
 #
