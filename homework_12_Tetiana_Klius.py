@@ -83,11 +83,11 @@ class Group:
         self.max_student = max_students
 
     def add_student(self, student):
-        if student in self.__students and len(self.__students) < self.max_student:
+        if student not in self.__students and len(self.__students) < self.max_student:
             self.__students.append(student)
 
     def __str__(self):
-        return f'{self.title}\n\n' + '\n'.join(map(str, self.__students))
+        return f'{self.title}\n' + '*' * 15 + '\n' + '\n'.join(map(str, self.__students))
 
     def remove_student(self, student):
         if student in self.__students:
@@ -116,12 +116,17 @@ group = Group("Python")
 group.add_student(student_1)
 group.add_student(student_2)
 group.add_student(student_3)
-group.add_student(student_6)
+group.add_student(student_5)
 group.add_student(student_8)
 group.add_student(student_9)
 
 group.remove_student(student_9)
 
-print(group.find_student("Shepit"))
-print(group.find_student("Buriak"))
+res = group.find_student("Shepit")
+for item in res:
+    print(item)
+res = group.find_student("Buriak")
+for item in res:
+    print(item)
+
 print(group)
