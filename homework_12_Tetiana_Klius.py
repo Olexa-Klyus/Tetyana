@@ -125,6 +125,7 @@ group.remove_student(student_9)
 res = group.find_student("Shepit")
 for item in res:
     print(item)
+    print(item.name, item.surname, item.age)
 res = group.find_student("Buriak")
 for item in res:
     print(item)
