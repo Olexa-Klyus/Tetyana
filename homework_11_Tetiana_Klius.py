@@ -60,6 +60,7 @@ class Group:
         if len(self.group) >= self.max_group:
             raise GroupLimitError(self.max_group)
         self.group.append(student)
+        logger.info("Add student "+str(student.surname))
 
     def remove_student(self, student: Student):
         """
@@ -103,6 +104,19 @@ class DublicateStudentError(Exception):
         return f"Student {self.student} registered in {self.group_title}."
 
 
+logger = logging.getLogger("homework_11_Tetiana_Klius")
+logger.setLevel(logging.INFO)
+
+filehandler = logging.FileHandler("logger.log")
+filehandler.setLevel(logging.INFO)
+
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+filehandler.setFormatter(formatter)
+
+logger.addHandler(filehandler)
+
+logger.info("Started logging")
+
 try:
     group = Group("group", max_group=10)
     group.add_student(Student("Lida", "Vasylenko", 25))  # 1
@@ -122,16 +136,6 @@ try:
 except Exception as error:
     print(error)
 
-logger = logging.getLogger("homework_11_Tetiana_Klius")
-logger.setLevel(logging.INFO)
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logger.info("Finished logging")
 
-filehandler = logging.FileHandler("logger.log")
-filehandler.setLevel(logging.INFO)
-filehandler.setFormatter(formatter)
 
-logger.addHandler(filehandler)
-
-if __name__ == "__main__":
-    logger.info("Started logging")
-    logger.info("Finished logging")
