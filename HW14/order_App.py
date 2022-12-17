@@ -1,14 +1,14 @@
-import customer
-import product
+import customer_App
+import product_App
 
 
 class Order:
-    def __init__(self, customer: customer.Customer):
+    def __init__(self, customer: customer_App.Customer):
         self.customer = customer
         self.products = []
         self.quantities = []
 
-    def add_product(self, product: product.Product, quantity: float = 1):
+    def add_product(self, product: product_App.Product, quantity: float = 1):
         if product in self.products:
             index = self.products.index(product)
             self.quantities[index] += quantity
@@ -24,7 +24,7 @@ class Order:
 
     def __str__(self):
         res = '\n'.join(map
-                (lambda item: f"{item[0]} × {item[1]} = {item[0].price * item[1]} UAH",
-                zip(self.products, self.quantities))
-                )
-        return f"{customer}\n-order-\n{res}\nTotal: {self.total_cost()} UAH"
+                        (lambda item: f"{item[0]} × {item[1]} = {item[0].price * item[1]} UAH",
+                         zip(self.products, self.quantities))
+                        )
+        return f"{self.customer}\n-order-\n{res}\nTotal: {self.total_cost()} UAH"
